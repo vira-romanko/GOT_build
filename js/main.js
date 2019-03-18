@@ -3,9 +3,10 @@
 	console.log("fired!");
 
 	const sigils = document.querySelectorAll(".sigil-container"),
-	      lightbox = document.querySelector('.lightbox');
-	      video = document.querySelector("video");
-	      lbClose = document.querySelector(".lightbox-close");
+	      lightbox = document.querySelector('.lightbox'),
+	      video = document.querySelector("video"),
+	      lbClose = document.querySelector(".lightbox-close"),
+	      topBanners = document.querySelector("#houseImages");
 
 	      function openLightbox(){
 	      	//debugger;
@@ -28,8 +29,23 @@
 	      }
 
 
+	      function animateBanners() {
+	      	// move the banners to the left so that the current house banner is visible 
 
-	      sigils.forEach(sigil => sigil.addEventListener("click", openLightbox));
+	      	// grab the data-offset njmbe from the shield we're clicking on
+	      	// 
+	      	const offSet = 600;
+	      	let currentOffset = this.dataset.offset * offSet;
+	      	// move the banners using the right css property
+	      	topBanners.style.right = currentOffset + "px";
+	      }
+
+
+
+	      //sigils.forEach(sigil => sigil.addEventListener("click", openLightbox));
+
+	      // animate the banners at the top
+	      sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
 
 	      video.addEventListener('ended', closeLightbox);
 	      lbClose.addEventListener('click', closeLightbox);
