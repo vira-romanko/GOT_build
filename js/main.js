@@ -36,6 +36,7 @@
 	      	// 
 	      	const offSet = 600;
 	      	let currentOffset = this.dataset.offset * offSet;
+	      	TweenMax.to(topBanners, 0.7, {right: currentOffset});
 	      	// move the banners using the right css property
 	      	topBanners.style.right = currentOffset + "px";
 	      }
