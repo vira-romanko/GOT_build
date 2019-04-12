@@ -48,6 +48,11 @@ main {
 	cursor:pointer;
 }
 
+.hidden
+{
+	display:none;
+}
+
 /* ----- end default styles ----- */
 
 /* ----- image sprite ----- */
@@ -129,7 +134,13 @@ video {
 	width: 80%;
 	margin-top: 10%;
 	border: thin solid #949393;
+	
+
+
+
 }
+
+
 
 .house-info
 {
@@ -141,3 +152,11 @@ video {
 	line-height: 1.5;
 	margin-top: 10px;
 }
+
+.house-name
+
+{
+	letter-spacing: 3px;
+}
+
+

@@ -9,6 +9,9 @@
 	      topBanners = document.querySelector("#houseImages"),
 	      tagline = document.querySelector(".house-name"),
 	      houseInfo = document.querySelector(".house-info");
+	      
+           
+
 
 
 	      //Mulitdementional array
@@ -43,10 +46,10 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 	      function openLightbox(){
 	      	//debugger;
 	      	// split helps to get to the right class
+	      	
 	      	// FOR FUTURE REFERENCE 
 	      	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
-	      	 let targetHouse = this.className.split(" ")[1]; 
-	      	 //move this line to the animateBanners
+	      	 
 
 	      	 // this gives us back house name => the second class in all the shields ie stark, lanister...
 	      	 // flip ths to uppercase
@@ -55,7 +58,7 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 	      	//tagline.textContent = `House ${targetVid}`; code from  the first example
 	      	//houseinfo.textContent = houseData [0]; code from the first example
 
-	      	 video.src = `video/House-${targetHouse}.mp4`;
+	      	 video.src = `video/House-${targetVid}.mp4`;
 	      	 lightbox.classList.add('lightbox-on');
 	      	 video.load();
 	      	 video.play();
@@ -75,29 +78,53 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 	      	// 
 	      	const offSet = 600;
 	      	let currentOffset = this.dataset.offset * offSet;
-	      	TweenMax.to(topBanners, 0.7, {right: currentOffset});
+	      	TweenMax.to(topBanners, 1, {right: currentOffset});
 	      	// move the banners using the right css property
-	      
+ 
+	       targetHouse = this.className.split(" ")[1]; 
 	      	topBanners.style.right = currentOffset + "px";
 
-	      	//change the text content on the page per house
-	      	
+	 
+
+	    
+	      	 
 	     	
 	      	//tagline.textContent = `House ${houseData[0][0]}`;
 	      	//houseInfo.textContent = houseData[0][1];
-
+            
 
 	      	// listening to the event in the animateBanners to open up video for each shield
+	      	//but it allows to play the video just from second click
 
 	      	sigils.forEach(sigil => sigil.addEventListener("click", openLightbox));
 
-	      	
-	      
-          
+
+	  
+	       
+
+	      	//changing the headline and text for each house when clicking on the shield
+	      	//providing the access to the custom data, changing content per house
+
+	      	//FOR FUTURE REFERENCE https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+	      	tagline.textContent = `House ${houseData[this.dataset.offset][0]}`;
+		    houseInfo.textContent = houseData[this.dataset.offset][1];
+
 
 
    
 	    }
+
+	    
+
+        //setTimeout(delay, 3000);
+        // function delay(){
+        // 	console.lgo( ' delay works');
+        // 	openLightbox();
+        // 
+
+        //topBanners.addEventListener("transitioned", delay);
+
+
 
 
 
@@ -107,6 +134,7 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 
 	      // animate the banners at the top
 	      sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
+	      
 
 	      video.addEventListener('ended', closeLightbox);
 	      lbClose.addEventListener('click', closeLightbox);
