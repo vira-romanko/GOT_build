@@ -22,4 +22,4 @@ SublimeText
 
 ## Acknowledgment/reference sources
 * [Mozilla.org](https://developer.mozilla.org/en-US/)
-* Special thanks Trevor for providing the class files
+* Special thanks to Trevor for providing the class files
