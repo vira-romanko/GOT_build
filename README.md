@@ -21,5 +21,5 @@ SublimeText
 * **Trevor Van Rys**
 
 ## Acknowledgment/reference sources
-[Mozilla.org](https://developer.mozilla.org/en-US/)
-Special thanks Trevor for providing the class files
+* [Mozilla.org](https://developer.mozilla.org/en-US/)
+* Special thanks Trevor for providing the class files
