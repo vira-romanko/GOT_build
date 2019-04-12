@@ -135,7 +135,9 @@ video {
 {
 	color: #fff;
 	font-size: 18px;
-	margin: 20 auto 0 auto;
+	margin: 0 auto;
 	width: 65%;
 	text-align: center;
+	line-height: 1.5;
+	margin-top: 10px;
 }

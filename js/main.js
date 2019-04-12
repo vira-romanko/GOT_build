@@ -10,6 +10,12 @@
 	      tagline = document.querySelector(".house-name"),
 	      houseInfo = document.querySelector(".house-info");
 
+
+	      //Mulitdementional array
+	      // Future Reference
+	      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+	     
+
 	      const houseData =[
 	      [`STARK`, `STARK
 House Stark of Winterfell is a Great House of Westeros, ruling over the vast region known as the North from their seat in Winterfell. It is one of the oldest lines of Westerosi nobility by far, claiming a line of descent stretching back over eight thousand years. Before the Targaryen conquest, as well as during the War of the Five Kings and Daenerys Targaryen's invasion of Westeros, the leaders of House Stark ruled over the region as the Kings in the North.`],
@@ -36,13 +42,20 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 
 	      function openLightbox(){
 	      	//debugger;
-	      	 let targetHouse = this.className.split(" ")[1];
+	      	// split helps to get to the right class
+	      	// FOR FUTURE REFERENCE 
+	      	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+	      	 let targetHouse = this.className.split(" ")[1]; 
+	      	 //move this line to the animateBanners
 
 	      	 // this gives us back house name => the second class in all the shields ie stark, lanister...
 	      	 // flip ths to uppercase
 	      	let targetVid = targetHouse.charAt(0).toUpperCase() + targetHouse.slice(1);
 
-	      	 video.src=  `vide/House-${targetHouse}.mp4`;
+	      	//tagline.textContent = `House ${targetVid}`; code from  the first example
+	      	//houseinfo.textContent = houseData [0]; code from the first example
+
+	      	 video.src = `video/House-${targetHouse}.mp4`;
 	      	 lightbox.classList.add('lightbox-on');
 	      	 video.load();
 	      	 video.play();
@@ -64,54 +77,39 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 	      	let currentOffset = this.dataset.offset * offSet;
 	      	TweenMax.to(topBanners, 0.7, {right: currentOffset});
 	      	// move the banners using the right css property
-	      	//topBanners.style.right = currentOffset + "px";
+	      
+	      	topBanners.style.right = currentOffset + "px";
 
 	      	//change the text content on the page per house
 	      	
-	      	tagline.textContent = `House ${houseData[0][0]}`;
-	      	houseInfo.textContent = houseData[0][1];
+	     	
+	      	//tagline.textContent = `House ${houseData[0][0]}`;
+	      	//houseInfo.textContent = houseData[0][1];
 
-	   //    	if (offset == 0) {
-    //   tagline.innerHTML =  name[0];
-    //   houseinfo.innerHTML = info[0];
-    //   console.log(tagline.innerHTML);
-    // }else if (offset == 1) {
-    //   tagline.innerHTML = name[1];
-    //   houseinfo.innerHTML = info[1];
-    //   console.log(tagline.innerHTML);
-    // } else if(offset == 2) {
-    //   tagline.innerHTML = name[2];
-    //   houseinfo.innerHTML = info[2];
-    //   console.log(tagline.innerHTML);
-    // } else if(offset == 3) {
-    //   tagline.innerHTML = name[3];
-    //   houseinfo.innerHTML = info[3];
-    //   console.log(tagline.innerHTML);
-    // } else if(offset == 4) {
-    //   tagline.innerHTML = name[4];
-    //   houseinfo.innerHTML = info[4];
-    //   console.log(tagline.innerHTML);
-    // } else if(offset == 5) {
-    //   tagline.innerHTML = name[5];
-    //   houseinfo.innerHTML = info[5];
-    //   console.log(tagline.innerHTML);
-    // }else if (offset == 6) {
-    //   tagline.innerHTML = name[6];
-    //   houseinfo.innerHTML = info[6];
-    //   console.log(tagline.innerHTML);
-    // }else {
-    //   return;
+
+	      	// listening to the event in the animateBanners to open up video for each shield
+
+	      	sigils.forEach(sigil => sigil.addEventListener("click", openLightbox));
+
+	      	
+	      
+          
+
+
+   
 	    }
 
 
 
 
-	      //sigils.forEach(sigil => sigil.addEventListener("click", openLightbox));
+	      //sigils.forEach(sigil => sigil.addEventListener("click", openLightbox)); line from previous example
+	      // just move this line to the animateBanners
 
 	      // animate the banners at the top
 	      sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
 
 	      video.addEventListener('ended', closeLightbox);
 	      lbClose.addEventListener('click', closeLightbox);
+	     
 
 })();
