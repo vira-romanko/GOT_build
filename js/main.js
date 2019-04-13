@@ -9,6 +9,8 @@
 	      topBanners = document.querySelector("#houseImages"),
 	      tagline = document.querySelector(".house-name"),
 	      houseInfo = document.querySelector(".house-info");
+
+
 	      
            
 
@@ -42,6 +44,11 @@ House Greyjoy's sigil is traditionally a golden kraken on a black field. Their h
 `House Frey of the Twins was the Great House of the Riverlands, having gained their position for their treachery against their former liege lords, House Tully, who were stripped of all their lands and titles for their rebellion against the Iron Throne; House Tully had supported the independence movement for the Kingdom of the North. The current head of the house is unknown following the assassinations of Lord Walder Frey and two of his sons, Lothar Frey and Walder Rivers, by the vengeful Arya Stark. This is made more complex by the subsequent assassination of all the male Freys soon after.`]
 
 	      ];
+	      var textMove = new TimelineMax({repeat:1, repeatDelay:1, yoyo:true});
+	      textMove.to(".house-name", 4, {text:"Welcome to the"})
+            .to(".house-name", 0.5, {x:200})
+            .set(".house-info", {text:"THE END IS NEAR", opacity:0.5,})
+          
 
 	      function openLightbox(){
 	      	//debugger;
